@@ -1,0 +1,5 @@
+1.- Ejecutar Script en un Motor SQL SERVER en base a una conexion local
+    (localhost) junto a una autenticacion de windows.
+2.- Credenciales:
+	-Usuario : admin
+	-Password: admin
