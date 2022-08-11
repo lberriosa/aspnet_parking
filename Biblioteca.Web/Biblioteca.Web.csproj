@@ -1,0 +1,791 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{819604A2-9621-4958-9D5F-18BEAE77A0FB}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Biblioteca.Web</RootNamespace>
+    <AssemblyName>Biblioteca.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44318</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>3.4</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Web.Services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Services3.3.0.0.0\lib\net20\Microsoft.Web.Services3.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Transbank, Version=2.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\TransbankSDK.2.2.1\lib\net452\Transbank.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Servicio_Estacionamiento\SSistemaEstacionamiento.disco" />
+    <None Include="Connected Services\Servicio_Estacionamiento\configuration91.svcinfo" />
+    <None Include="Connected Services\Servicio_Estacionamiento\configuration.svcinfo" />
+    <None Include="Connected Services\Servicio_Estacionamiento\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="buscarEstacionamiento.aspx" />
+    <Content Include="editarEstacionamientos.aspx" />
+    <Content Include="editarUsuarios.aspx" />
+    <Content Include="editarVehiculos.aspx" />
+    <Content Include="home.aspx" />
+    <Content Include="ingresarEstacionamientos.aspx" />
+    <Content Include="ingresarUsuarios.aspx" />
+    <Content Include="ingresarVehiculos.aspx" />
+    <Content Include="listarArriendos.aspx" />
+    <Content Include="listarEstacionamientos.aspx" />
+    <Content Include="listarUsuarios.aspx" />
+    <Content Include="listarVehiculos.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="pagarArriendo.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="WebDesign\assets\css\components.css" />
+    <Content Include="WebDesign\assets\css\custom.css" />
+    <Content Include="WebDesign\assets\css\reverse.css" />
+    <Content Include="WebDesign\assets\css\rtl.css" />
+    <Content Include="WebDesign\assets\css\skins\reverse.css" />
+    <Content Include="WebDesign\assets\css\style.css" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-600.svg" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-700.svg" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-800.svg" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-regular.svg" />
+    <Content Include="WebDesign\assets\fonts\vazir\font-face.css" />
+    <Content Include="WebDesign\assets\fonts\vazir\sample.png" />
+    <Content Include="WebDesign\assets\img\avatar\avatar-1.png" />
+    <Content Include="WebDesign\assets\img\avatar\avatar-2.png" />
+    <Content Include="WebDesign\assets\img\avatar\avatar-3.png" />
+    <Content Include="WebDesign\assets\img\avatar\avatar-4.png" />
+    <Content Include="WebDesign\assets\img\avatar\avatar-5.png" />
+    <Content Include="WebDesign\assets\img\drawkit\drawkit-full-stack-man-colour.svg" />
+    <Content Include="WebDesign\assets\img\drawkit\drawkit-mobile-article-colour.svg" />
+    <Content Include="WebDesign\assets\img\drawkit\drawkit-nature-man-colour.svg" />
+    <Content Include="WebDesign\assets\img\drawkit\revenue-graph-colour.svg" />
+    <Content Include="WebDesign\assets\img\example-image-50.jpg" />
+    <Content Include="WebDesign\assets\img\example-image.jpg" />
+    <Content Include="WebDesign\assets\img\fondo.jpg" />
+    <Content Include="WebDesign\assets\img\Logo.png" />
+    <Content Include="WebDesign\assets\img\news\img01.jpg" />
+    <Content Include="WebDesign\assets\img\news\img02.jpg" />
+    <Content Include="WebDesign\assets\img\news\img03.jpg" />
+    <Content Include="WebDesign\assets\img\news\img04.jpg" />
+    <Content Include="WebDesign\assets\img\news\img05.jpg" />
+    <Content Include="WebDesign\assets\img\news\img06.jpg" />
+    <Content Include="WebDesign\assets\img\news\img07.jpg" />
+    <Content Include="WebDesign\assets\img\news\img08.jpg" />
+    <Content Include="WebDesign\assets\img\news\img09.jpg" />
+    <Content Include="WebDesign\assets\img\news\img10.jpg" />
+    <Content Include="WebDesign\assets\img\news\img11.jpg" />
+    <Content Include="WebDesign\assets\img\news\img12.jpg" />
+    <Content Include="WebDesign\assets\img\news\img13.jpg" />
+    <Content Include="WebDesign\assets\img\news\img14.jpg" />
+    <Content Include="WebDesign\assets\img\news\img15.jpg" />
+    <Content Include="WebDesign\assets\img\news\img16.jpg" />
+    <Content Include="WebDesign\assets\img\news\img17.jpg" />
+    <Content Include="WebDesign\assets\img\p-250.png" />
+    <Content Include="WebDesign\assets\img\p-50.png" />
+    <Content Include="WebDesign\assets\img\products\product-1-50.png" />
+    <Content Include="WebDesign\assets\img\products\product-1.jpg" />
+    <Content Include="WebDesign\assets\img\products\product-2-50.png" />
+    <Content Include="WebDesign\assets\img\products\product-2.jpg" />
+    <Content Include="WebDesign\assets\img\products\product-3-50.png" />
+    <Content Include="WebDesign\assets\img\products\product-3.jpg" />
+    <Content Include="WebDesign\assets\img\products\product-4-50.png" />
+    <Content Include="WebDesign\assets\img\products\product-4.jpg" />
+    <Content Include="WebDesign\assets\img\products\product-5-50.png" />
+    <Content Include="WebDesign\assets\img\products\product-5.jpg" />
+    <Content Include="WebDesign\assets\img\stisla-fill.svg" />
+    <Content Include="WebDesign\assets\img\stisla-light.svg" />
+    <Content Include="WebDesign\assets\img\stisla-transparent.svg" />
+    <Content Include="WebDesign\assets\img\stisla.svg" />
+    <Content Include="WebDesign\assets\img\unsplash\andre-benz-1214056-unsplash.jpg" />
+    <Content Include="WebDesign\assets\img\unsplash\eberhard-grossgasteiger-1207565-unsplash.jpg" />
+    <Content Include="WebDesign\assets\img\unsplash\login-bg.jpg" />
+    <Content Include="WebDesign\assets\js\custom.js" />
+    <Content Include="WebDesign\assets\js\page\auth-register.js" />
+    <Content Include="WebDesign\assets\js\page\bootstrap-modal.js" />
+    <Content Include="WebDesign\assets\js\page\components-chat-box.js" />
+    <Content Include="WebDesign\assets\js\page\components-multiple-upload.js" />
+    <Content Include="WebDesign\assets\js\page\components-statistic.js" />
+    <Content Include="WebDesign\assets\js\page\components-table.js" />
+    <Content Include="WebDesign\assets\js\page\components-user.js" />
+    <Content Include="WebDesign\assets\js\page\features-post-create.js" />
+    <Content Include="WebDesign\assets\js\page\features-posts.js" />
+    <Content Include="WebDesign\assets\js\page\features-setting-detail.js" />
+    <Content Include="WebDesign\assets\js\page\forms-advanced-forms.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-advanced-route.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-draggable-marker.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-geocoding.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-geolocation.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-marker.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-multiple-marker.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-route.js" />
+    <Content Include="WebDesign\assets\js\page\gmaps-simple.js" />
+    <Content Include="WebDesign\assets\js\page\index-0.js" />
+    <Content Include="WebDesign\assets\js\page\index.js" />
+    <Content Include="WebDesign\assets\js\page\modules-calendar.js" />
+    <Content Include="WebDesign\assets\js\page\modules-chartjs.js" />
+    <Content Include="WebDesign\assets\js\page\modules-datatables.js" />
+    <Content Include="WebDesign\assets\js\page\modules-ion-icons.js" />
+    <Content Include="WebDesign\assets\js\page\modules-slider.js" />
+    <Content Include="WebDesign\assets\js\page\modules-sparkline.js" />
+    <Content Include="WebDesign\assets\js\page\modules-sweetalert.js" />
+    <Content Include="WebDesign\assets\js\page\modules-toastr.js" />
+    <Content Include="WebDesign\assets\js\page\modules-vector-map.js" />
+    <Content Include="WebDesign\assets\js\page\utilities-contact.js" />
+    <Content Include="WebDesign\assets\js\scripts.js" />
+    <Content Include="WebDesign\assets\js\stisla.js" />
+    <Content Include="WebDesign\dev\rtl\blank.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-alert.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-badge.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-breadcrumb.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-buttons.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-card.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-carousel.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-collapse.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-dropdown.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-form.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-list-group.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-media-object.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-modal.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-nav.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-navbar.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-pagination.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-popover.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-progress.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-table.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-tooltip.html" />
+    <Content Include="WebDesign\dev\rtl\bootstrap-typography.html" />
+    <Content Include="WebDesign\dev\rtl\components-gallery.html" />
+    <Content Include="WebDesign\dev\rtl\components-multiple-upload.html" />
+    <Content Include="WebDesign\dev\rtl\components-tab.html" />
+    <Content Include="WebDesign\dev\rtl\components-table.html" />
+    <Content Include="WebDesign\dev\rtl\index-0.html" />
+    <Content Include="WebDesign\dev\rtl\index.html" />
+    <Content Include="WebDesign\dev\rtl\layout-default.html" />
+    <Content Include="WebDesign\dev\rtl\layout-top-navigation.html" />
+    <Content Include="WebDesign\dev\rtl\layout-transparent.html" />
+    <Content Include="WebDesign\gulpfile.js" />
+    <Content Include="WebDesign\mapas.js" />
+    <Content Include="WebDesign\pages\auth-forgot-password.html" />
+    <Content Include="WebDesign\pages\auth-login-2.html" />
+    <Content Include="WebDesign\pages\auth-login.html" />
+    <Content Include="WebDesign\pages\auth-register.html" />
+    <Content Include="WebDesign\pages\auth-reset-password.html" />
+    <Content Include="WebDesign\pages\blank.html" />
+    <Content Include="WebDesign\pages\bootstrap-alert.html" />
+    <Content Include="WebDesign\pages\bootstrap-badge.html" />
+    <Content Include="WebDesign\pages\bootstrap-breadcrumb.html" />
+    <Content Include="WebDesign\pages\bootstrap-buttons.html" />
+    <Content Include="WebDesign\pages\bootstrap-card.html" />
+    <Content Include="WebDesign\pages\bootstrap-carousel.html" />
+    <Content Include="WebDesign\pages\bootstrap-collapse.html" />
+    <Content Include="WebDesign\pages\bootstrap-dropdown.html" />
+    <Content Include="WebDesign\pages\bootstrap-form.html" />
+    <Content Include="WebDesign\pages\bootstrap-list-group.html" />
+    <Content Include="WebDesign\pages\bootstrap-media-object.html" />
+    <Content Include="WebDesign\pages\bootstrap-modal.html" />
+    <Content Include="WebDesign\pages\bootstrap-nav.html" />
+    <Content Include="WebDesign\pages\bootstrap-navbar.html" />
+    <Content Include="WebDesign\pages\bootstrap-pagination.html" />
+    <Content Include="WebDesign\pages\bootstrap-popover.html" />
+    <Content Include="WebDesign\pages\bootstrap-progress.html" />
+    <Content Include="WebDesign\pages\bootstrap-table.html" />
+    <Content Include="WebDesign\pages\bootstrap-tooltip.html" />
+    <Content Include="WebDesign\pages\bootstrap-typography.html" />
+    <Content Include="WebDesign\pages\components-article.html" />
+    <Content Include="WebDesign\pages\components-avatar.html" />
+    <Content Include="WebDesign\pages\components-chat-box.html" />
+    <Content Include="WebDesign\pages\components-empty-state.html" />
+    <Content Include="WebDesign\pages\components-gallery.html" />
+    <Content Include="WebDesign\pages\components-hero.html" />
+    <Content Include="WebDesign\pages\components-multiple-upload.html" />
+    <Content Include="WebDesign\pages\components-pricing.html" />
+    <Content Include="WebDesign\pages\components-statistic.html" />
+    <Content Include="WebDesign\pages\components-tab.html" />
+    <Content Include="WebDesign\pages\components-table.html" />
+    <Content Include="WebDesign\pages\components-user.html" />
+    <Content Include="WebDesign\pages\components-wizard.html" />
+    <Content Include="WebDesign\pages\credits.html" />
+    <Content Include="WebDesign\pages\errors-403.html" />
+    <Content Include="WebDesign\pages\errors-404.html" />
+    <Content Include="WebDesign\pages\errors-500.html" />
+    <Content Include="WebDesign\pages\errors-503.html" />
+    <Content Include="WebDesign\pages\features-activities.html" />
+    <Content Include="WebDesign\pages\features-post-create.html" />
+    <Content Include="WebDesign\pages\features-posts.html" />
+    <Content Include="WebDesign\pages\features-profile.html" />
+    <Content Include="WebDesign\pages\features-setting-detail.html" />
+    <Content Include="WebDesign\pages\features-settings.html" />
+    <Content Include="WebDesign\pages\features-tickets.html" />
+    <Content Include="WebDesign\pages\forms-advanced-form.html" />
+    <Content Include="WebDesign\pages\forms-editor.html" />
+    <Content Include="WebDesign\pages\forms-validation.html" />
+    <Content Include="WebDesign\pages\gmaps-advanced-route.html" />
+    <Content Include="WebDesign\pages\gmaps-draggable-marker.html" />
+    <Content Include="WebDesign\pages\gmaps-geocoding.html" />
+    <Content Include="WebDesign\pages\gmaps-geolocation.html" />
+    <Content Include="WebDesign\pages\gmaps-marker.html" />
+    <Content Include="WebDesign\pages\gmaps-multiple-marker.html" />
+    <Content Include="WebDesign\pages\gmaps-route.html" />
+    <Content Include="WebDesign\pages\gmaps-simple.html" />
+    <Content Include="WebDesign\pages\index-0.html" />
+    <Content Include="WebDesign\pages\index.html" />
+    <Content Include="WebDesign\pages\layout-default.html" />
+    <Content Include="WebDesign\pages\layout-top-navigation.html" />
+    <Content Include="WebDesign\pages\layout-transparent.html" />
+    <Content Include="WebDesign\pages\modules-calendar.html" />
+    <Content Include="WebDesign\pages\modules-chartjs.html" />
+    <Content Include="WebDesign\pages\modules-datatables.html" />
+    <Content Include="WebDesign\pages\modules-flag.html" />
+    <Content Include="WebDesign\pages\modules-font-awesome.html" />
+    <Content Include="WebDesign\pages\modules-ion-icons.html" />
+    <Content Include="WebDesign\pages\modules-owl-carousel.html" />
+    <Content Include="WebDesign\pages\modules-sparkline.html" />
+    <Content Include="WebDesign\pages\modules-sweet-alert.html" />
+    <Content Include="WebDesign\pages\modules-toastr.html" />
+    <Content Include="WebDesign\pages\modules-vector-map.html" />
+    <Content Include="WebDesign\pages\modules-weather-icon.html" />
+    <Content Include="WebDesign\pages\utilities-contact.html" />
+    <Content Include="WebDesign\pages\utilities-invoice.html" />
+    <Content Include="WebDesign\pages\utilities-subscribe.html" />
+    <Content Include="WebDesign\sources\pages\auth-forgot-password.html" />
+    <Content Include="WebDesign\sources\pages\auth-login-2.html" />
+    <Content Include="WebDesign\sources\pages\auth-login.html" />
+    <Content Include="WebDesign\sources\pages\auth-register.html" />
+    <Content Include="WebDesign\sources\pages\auth-reset-password.html" />
+    <Content Include="WebDesign\sources\pages\blank.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-alert.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-badge.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-breadcrumb.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-buttons.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-card.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-carousel.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-collapse.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-dropdown.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-form.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-list-group.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-media-object.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-modal.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-nav.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-navbar.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-pagination.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-popover.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-progress.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-table.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-tooltip.html" />
+    <Content Include="WebDesign\sources\pages\bootstrap-typography.html" />
+    <Content Include="WebDesign\sources\pages\components-article.html" />
+    <Content Include="WebDesign\sources\pages\components-avatar.html" />
+    <Content Include="WebDesign\sources\pages\components-chat-box.html" />
+    <Content Include="WebDesign\sources\pages\components-empty-state.html" />
+    <Content Include="WebDesign\sources\pages\components-gallery.html" />
+    <Content Include="WebDesign\sources\pages\components-hero.html" />
+    <Content Include="WebDesign\sources\pages\components-multiple-upload.html" />
+    <Content Include="WebDesign\sources\pages\components-pricing.html" />
+    <Content Include="WebDesign\sources\pages\components-statistic.html" />
+    <Content Include="WebDesign\sources\pages\components-tab.html" />
+    <Content Include="WebDesign\sources\pages\components-table.html" />
+    <Content Include="WebDesign\sources\pages\components-user.html" />
+    <Content Include="WebDesign\sources\pages\components-wizard.html" />
+    <Content Include="WebDesign\sources\pages\credits.html" />
+    <Content Include="WebDesign\sources\pages\errors-403.html" />
+    <Content Include="WebDesign\sources\pages\errors-404.html" />
+    <Content Include="WebDesign\sources\pages\errors-500.html" />
+    <Content Include="WebDesign\sources\pages\errors-503.html" />
+    <Content Include="WebDesign\sources\pages\features-activities.html" />
+    <Content Include="WebDesign\sources\pages\features-post-create.html" />
+    <Content Include="WebDesign\sources\pages\features-posts.html" />
+    <Content Include="WebDesign\sources\pages\features-profile.html" />
+    <Content Include="WebDesign\sources\pages\features-setting-detail.html" />
+    <Content Include="WebDesign\sources\pages\features-settings.html" />
+    <Content Include="WebDesign\sources\pages\features-tickets.html" />
+    <Content Include="WebDesign\sources\pages\forms-advanced-form.html" />
+    <Content Include="WebDesign\sources\pages\forms-editor.html" />
+    <Content Include="WebDesign\sources\pages\forms-validation.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-advanced-route.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-draggable-marker.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-geocoding.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-geolocation.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-marker.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-multiple-marker.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-route.html" />
+    <Content Include="WebDesign\sources\pages\gmaps-simple.html" />
+    <Content Include="WebDesign\sources\pages\index-0.html" />
+    <Content Include="WebDesign\sources\pages\index.html" />
+    <Content Include="WebDesign\sources\pages\layout-default.html" />
+    <Content Include="WebDesign\sources\pages\layout-top-navigation.html" />
+    <Content Include="WebDesign\sources\pages\layout-transparent.html" />
+    <Content Include="WebDesign\sources\pages\layouts\master-2.html" />
+    <Content Include="WebDesign\sources\pages\layouts\master-3.html" />
+    <Content Include="WebDesign\sources\pages\layouts\master.html" />
+    <Content Include="WebDesign\sources\pages\layouts\menu.html" />
+    <Content Include="WebDesign\sources\pages\modules-calendar.html" />
+    <Content Include="WebDesign\sources\pages\modules-chartjs.html" />
+    <Content Include="WebDesign\sources\pages\modules-datatables.html" />
+    <Content Include="WebDesign\sources\pages\modules-flag.html" />
+    <Content Include="WebDesign\sources\pages\modules-font-awesome.html" />
+    <Content Include="WebDesign\sources\pages\modules-ion-icons.html" />
+    <Content Include="WebDesign\sources\pages\modules-owl-carousel.html" />
+    <Content Include="WebDesign\sources\pages\modules-sparkline.html" />
+    <Content Include="WebDesign\sources\pages\modules-sweet-alert.html" />
+    <Content Include="WebDesign\sources\pages\modules-toastr.html" />
+    <Content Include="WebDesign\sources\pages\modules-vector-map.html" />
+    <Content Include="WebDesign\sources\pages\modules-weather-icon.html" />
+    <Content Include="WebDesign\sources\pages\utilities-contact.html" />
+    <Content Include="WebDesign\sources\pages\utilities-invoice.html" />
+    <Content Include="WebDesign\sources\pages\utilities-subscribe.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="buscarEstacionamiento.aspx.cs">
+      <DependentUpon>buscarEstacionamiento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="buscarEstacionamiento.aspx.designer.cs">
+      <DependentUpon>buscarEstacionamiento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Servicio_Estacionamiento\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="editarEstacionamientos.aspx.cs">
+      <DependentUpon>editarEstacionamientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editarEstacionamientos.aspx.designer.cs">
+      <DependentUpon>editarEstacionamientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editarUsuarios.aspx.cs">
+      <DependentUpon>editarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editarUsuarios.aspx.designer.cs">
+      <DependentUpon>editarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="editarVehiculos.aspx.cs">
+      <DependentUpon>editarVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="editarVehiculos.aspx.designer.cs">
+      <DependentUpon>editarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ingresarEstacionamientos.aspx.cs">
+      <DependentUpon>ingresarEstacionamientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ingresarEstacionamientos.aspx.designer.cs">
+      <DependentUpon>ingresarEstacionamientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ingresarUsuarios.aspx.cs">
+      <DependentUpon>ingresarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ingresarUsuarios.aspx.designer.cs">
+      <DependentUpon>ingresarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ingresarVehiculos.aspx.cs">
+      <DependentUpon>ingresarVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ingresarVehiculos.aspx.designer.cs">
+      <DependentUpon>ingresarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listarArriendos.aspx.cs">
+      <DependentUpon>listarArriendos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listarArriendos.aspx.designer.cs">
+      <DependentUpon>listarArriendos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listarEstacionamientos.aspx.cs">
+      <DependentUpon>listarEstacionamientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listarEstacionamientos.aspx.designer.cs">
+      <DependentUpon>listarEstacionamientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listarUsuarios.aspx.cs">
+      <DependentUpon>listarUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listarUsuarios.aspx.designer.cs">
+      <DependentUpon>listarUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="listarVehiculos.aspx.cs">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="listarVehiculos.aspx.designer.cs">
+      <DependentUpon>listarVehiculos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="pagarArriendo.aspx.cs">
+      <DependentUpon>pagarArriendo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="pagarArriendo.aspx.designer.cs">
+      <DependentUpon>pagarArriendo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Servicio_Estacionamiento\SSistemaEstacionamiento.wsdl" />
+    <None Include="Connected Services\Servicio_Estacionamiento\SSistemaEstacionamiento.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Servicio_Estacionamiento\SSistemaEstacionamiento1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="WebDesign\.editorconfig" />
+    <Content Include="WebDesign\.gitignore" />
+    <Content Include="WebDesign\assets\css\components.css.map" />
+    <Content Include="WebDesign\assets\css\custom.css.map" />
+    <Content Include="WebDesign\assets\css\skins\reverse.css.map" />
+    <Content Include="WebDesign\assets\css\style.css.map" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-600.eot" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-600.ttf" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-600.woff" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-600.woff2" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-700.eot" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-700.ttf" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-700.woff" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-700.woff2" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-800.eot" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-800.ttf" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-800.woff" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-800.woff2" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-regular.eot" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-regular.ttf" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-regular.woff" />
+    <Content Include="WebDesign\assets\fonts\nunito-v9-latin-regular.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Black-FD-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Bold-FD-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-FD-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Light-FD-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Medium-FD-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits-Without-Latin\Vazir-Thin-FD-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Black-FD.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Bold-FD.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-FD.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-FD.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-FD.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-FD.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Light-FD.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Medium-FD.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Farsi-Digits\Vazir-Thin-FD.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\LICENSE" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Black.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Black.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Black.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Black.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Bold.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Bold.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Bold.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Bold.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Light.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Light.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Light.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Light.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Medium.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Medium.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Medium.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Medium.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Thin.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Thin.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Thin.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir-Thin.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Vazir.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Black-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Bold-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Light-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Medium-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-Thin-WOL.woff2" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-WOL.eot" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-WOL.ttf" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-WOL.woff" />
+    <Content Include="WebDesign\assets\fonts\vazir\Without-Latin\Vazir-WOL.woff2" />
+    <Content Include="WebDesign\CODE_OF_CONDUCT.md" />
+    <Content Include="WebDesign\CONTRIBUTING.md" />
+    <Content Include="WebDesign\LICENSE" />
+    <Content Include="WebDesign\package.json" />
+    <Content Include="WebDesign\README.md" />
+    <Content Include="WebDesign\sources\ai\placeholder-avatar.ai" />
+    <Content Include="WebDesign\sources\ai\placeholder-product.ai" />
+    <Content Include="WebDesign\sources\ai\placeholder.ai" />
+    <Content Include="WebDesign\sources\scss\components.scss" />
+    <Content Include="WebDesign\sources\scss\components\_activities.scss" />
+    <Content Include="WebDesign\sources\scss\components\_article.scss" />
+    <Content Include="WebDesign\sources\scss\components\_author.scss" />
+    <Content Include="WebDesign\sources\scss\components\_avatar.scss" />
+    <Content Include="WebDesign\sources\scss\components\_avataritem.scss" />
+    <Content Include="WebDesign\sources\scss\components\_browser.scss" />
+    <Content Include="WebDesign\sources\scss\components\_chat.scss" />
+    <Content Include="WebDesign\sources\scss\components\_chocolat.scss" />
+    <Content Include="WebDesign\sources\scss\components\_customtab.scss" />
+    <Content Include="WebDesign\sources\scss\components\_datatables.scss" />
+    <Content Include="WebDesign\sources\scss\components\_daterangepicker.scss" />
+    <Content Include="WebDesign\sources\scss\components\_dropzone.scss" />
+    <Content Include="WebDesign\sources\scss\components\_empty_state.scss" />
+    <Content Include="WebDesign\sources\scss\components\_flagicon.scss" />
+    <Content Include="WebDesign\sources\scss\components\_fullcalendar.scss" />
+    <Content Include="WebDesign\sources\scss\components\_gallery.scss" />
+    <Content Include="WebDesign\sources\scss\components\_hero.scss" />
+    <Content Include="WebDesign\sources\scss\components\_imagepreview.scss" />
+    <Content Include="WebDesign\sources\scss\components\_invoice.scss" />
+    <Content Include="WebDesign\sources\scss\components\_ionicons.scss" />
+    <Content Include="WebDesign\sources\scss\components\_jqvmap.scss" />
+    <Content Include="WebDesign\sources\scss\components\_owlcarousel.scss" />
+    <Content Include="WebDesign\sources\scss\components\_pricing.scss" />
+    <Content Include="WebDesign\sources\scss\components\_product.scss" />
+    <Content Include="WebDesign\sources\scss\components\_profile.scss" />
+    <Content Include="WebDesign\sources\scss\components\_pwstrength.scss" />
+    <Content Include="WebDesign\sources\scss\components\_select2.scss" />
+    <Content Include="WebDesign\sources\scss\components\_selectric.scss" />
+    <Content Include="WebDesign\sources\scss\components\_slider.scss" />
+    <Content Include="WebDesign\sources\scss\components\_sparkline.scss" />
+    <Content Include="WebDesign\sources\scss\components\_statistics.scss" />
+    <Content Include="WebDesign\sources\scss\components\_summary.scss" />
+    <Content Include="WebDesign\sources\scss\components\_summernote.scss" />
+    <Content Include="WebDesign\sources\scss\components\_sweetalert.scss" />
+    <Content Include="WebDesign\sources\scss\components\_tagsinput.scss" />
+    <Content Include="WebDesign\sources\scss\components\_ticket.scss" />
+    <Content Include="WebDesign\sources\scss\components\_timepicker.scss" />
+    <Content Include="WebDesign\sources\scss\components\_toast.scss" />
+    <Content Include="WebDesign\sources\scss\components\_useritem.scss" />
+    <Content Include="WebDesign\sources\scss\components\_weather.scss" />
+    <Content Include="WebDesign\sources\scss\components\_weathericon.scss" />
+    <Content Include="WebDesign\sources\scss\components\_wizard.scss" />
+    <Content Include="WebDesign\sources\scss\override\_accordion.scss" />
+    <Content Include="WebDesign\sources\scss\override\_alert.scss" />
+    <Content Include="WebDesign\sources\scss\override\_badge.scss" />
+    <Content Include="WebDesign\sources\scss\override\_breadcrumb.scss" />
+    <Content Include="WebDesign\sources\scss\override\_button.scss" />
+    <Content Include="WebDesign\sources\scss\override\_card.scss" />
+    <Content Include="WebDesign\sources\scss\override\_carousel.scss" />
+    <Content Include="WebDesign\sources\scss\override\_dropdown.scss" />
+    <Content Include="WebDesign\sources\scss\override\_form.scss" />
+    <Content Include="WebDesign\sources\scss\override\_grid.scss" />
+    <Content Include="WebDesign\sources\scss\override\_jumbotron.scss" />
+    <Content Include="WebDesign\sources\scss\override\_list.scss" />
+    <Content Include="WebDesign\sources\scss\override\_media.scss" />
+    <Content Include="WebDesign\sources\scss\override\_misc.scss" />
+    <Content Include="WebDesign\sources\scss\override\_modal.scss" />
+    <Content Include="WebDesign\sources\scss\override\_nav.scss" />
+    <Content Include="WebDesign\sources\scss\override\_navbar.scss" />
+    <Content Include="WebDesign\sources\scss\override\_pagination.scss" />
+    <Content Include="WebDesign\sources\scss\override\_popover.scss" />
+    <Content Include="WebDesign\sources\scss\override\_progressbar.scss" />
+    <Content Include="WebDesign\sources\scss\override\_tab.scss" />
+    <Content Include="WebDesign\sources\scss\override\_table.scss" />
+    <Content Include="WebDesign\sources\scss\override\_tooltip.scss" />
+    <Content Include="WebDesign\sources\scss\rtl.scss" />
+    <Content Include="WebDesign\sources\scss\skins\reverse.scss" />
+    <Content Include="WebDesign\sources\scss\style.scss" />
+    <Content Include="WebDesign\sources\scss\theme\_animation.scss" />
+    <Content Include="WebDesign\sources\scss\theme\_layout.scss" />
+    <Content Include="WebDesign\sources\scss\theme\_misc.scss" />
+    <Content Include="WebDesign\sources\scss\theme\_page.scss" />
+    <Content Include="WebDesign\sources\scss\theme\_section.scss" />
+    <Content Include="WebDesign\sources\scss\_functions.scss" />
+    <Content Include="WebDesign\sources\scss\_mixin.scss" />
+    <Content Include="WebDesign\sources\scss\_variable.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Biblioteca.Negocio\Biblioteca.Negocio.csproj">
+      <Project>{4e6184ed-65db-486a-8375-a7096416f8ad}</Project>
+      <Name>Biblioteca.Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Biblioteca.Servicio\Biblioteca.Servicio.csproj">
+      <Project>{1f9ee822-af54-4c05-86b7-0a45131ea7c8}</Project>
+      <Name>Biblioteca.Servicio</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Servicio_Estacionamiento\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>59305</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44318/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

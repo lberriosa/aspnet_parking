@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="SSistemaEstacionamiento" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:59226/SSistemaEstacionamiento.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:59226/SSistemaEstacionamiento.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ISistemaEstacionamiento_ValidarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ValidarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_CrearUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_CrearUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ModificarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ModificarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_EliminarUsuario_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuario" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_EliminarUsuario_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_CrearEstacionamiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearEstacionamiento" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_CrearEstacionamiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearEstacionamientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ModificarEstacionamiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEstacionamiento" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ModificarEstacionamiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarEstacionamientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_EliminarEstacionamiento_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEstacionamiento" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_EliminarEstacionamiento_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarEstacionamientoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_CrearVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:CrearVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_CrearVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CrearVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ModificarVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_ModificarVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ModificarVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_EliminarVehiculo_InputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarVehiculo" />
+  </wsdl:message>
+  <wsdl:message name="ISistemaEstacionamiento_EliminarVehiculo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EliminarVehiculoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ISistemaEstacionamiento">
+    <wsdl:operation name="ValidarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ValidarUsuario" message="tns:ISistemaEstacionamiento_ValidarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ValidarUsuarioResponse" message="tns:ISistemaEstacionamiento_ValidarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/CrearUsuario" message="tns:ISistemaEstacionamiento_CrearUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/CrearUsuarioResponse" message="tns:ISistemaEstacionamiento_CrearUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ModificarUsuario" message="tns:ISistemaEstacionamiento_ModificarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ModificarUsuarioResponse" message="tns:ISistemaEstacionamiento_ModificarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/EliminarUsuario" message="tns:ISistemaEstacionamiento_EliminarUsuario_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/EliminarUsuarioResponse" message="tns:ISistemaEstacionamiento_EliminarUsuario_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearEstacionamiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/CrearEstacionamiento" message="tns:ISistemaEstacionamiento_CrearEstacionamiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/CrearEstacionamientoResponse" message="tns:ISistemaEstacionamiento_CrearEstacionamiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEstacionamiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ModificarEstacionamiento" message="tns:ISistemaEstacionamiento_ModificarEstacionamiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ModificarEstacionamientoResponse" message="tns:ISistemaEstacionamiento_ModificarEstacionamiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEstacionamiento">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/EliminarEstacionamiento" message="tns:ISistemaEstacionamiento_EliminarEstacionamiento_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/EliminarEstacionamientoResponse" message="tns:ISistemaEstacionamiento_EliminarEstacionamiento_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CrearVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/CrearVehiculo" message="tns:ISistemaEstacionamiento_CrearVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/CrearVehiculoResponse" message="tns:ISistemaEstacionamiento_CrearVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ModificarVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ModificarVehiculo" message="tns:ISistemaEstacionamiento_ModificarVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/ModificarVehiculoResponse" message="tns:ISistemaEstacionamiento_ModificarVehiculo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarVehiculo">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/EliminarVehiculo" message="tns:ISistemaEstacionamiento_EliminarVehiculo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISistemaEstacionamiento/EliminarVehiculoResponse" message="tns:ISistemaEstacionamiento_EliminarVehiculo_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ISistemaEstacionamiento" type="tns:ISistemaEstacionamiento">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ValidarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/ValidarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/CrearUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/ModificarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarUsuario">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/EliminarUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearEstacionamiento">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/CrearEstacionamiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarEstacionamiento">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/ModificarEstacionamiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarEstacionamiento">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/EliminarEstacionamiento" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CrearVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/CrearVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/ModificarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarVehiculo">
+      <soap:operation soapAction="http://tempuri.org/ISistemaEstacionamiento/EliminarVehiculo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SSistemaEstacionamiento">
+    <wsdl:port name="BasicHttpBinding_ISistemaEstacionamiento" binding="tns:BasicHttpBinding_ISistemaEstacionamiento">
+      <soap:address location="http://localhost:59226/SSistemaEstacionamiento.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
